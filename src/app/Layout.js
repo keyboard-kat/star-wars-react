@@ -45,7 +45,7 @@ export default function Layout() {
             <CloseIcon />
           </IconButton>
         </Box>
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="center" pt={6}>
           <Grid item xs={10}>
             <List>
               {[

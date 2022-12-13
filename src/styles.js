@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   checked: {
-    color: "#fff",
+    color: "#A2D1B1",
   },
   text: {
     color: "#fff",

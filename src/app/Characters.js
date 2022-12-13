@@ -14,7 +14,7 @@ export default function Characters() {
   return (
     <List>
       {characters.map((i) => (
-        <Person key={i.url} person={i} />
+        <Person key={i.id} person={i} />
       ))}
     </List>
   );

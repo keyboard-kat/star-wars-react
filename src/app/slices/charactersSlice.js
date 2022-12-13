@@ -15,10 +15,10 @@ export const charactersSlice = createSlice({
         };
       });
     },
+
     removeFavorite: (state, action) => {
-      state.data = state.data.map((i) =>
-        i.id === action.payload.id ? { ...i, favorite: false } : { ...i }
-      );
+      let p = { ...action.payload, favorite: false };
+      state.data = state.data.map((i) => (i.id === action.payload.id ? { ...p } : { ...i }));
       state.favorites = state.data.filter((i) => i.favorite === true);
     },
     setFavorite: (state, action) => {

@@ -55,7 +55,7 @@ const theme = createTheme({
     MuiSvgIcon: {
       styleOverrides: {
         root: {
-          color: "#ffff",
+          color: "#A2D1B1",
         },
       },
     },
@@ -69,41 +69,34 @@ export default function Person({ person }) {
   React.useEffect(() => {}, [person.favorite]);
 
   return (
-    <React.Fragment key={person.url}>
-      <ThemeProvider theme={theme}>
-        <ListItem
-          secondaryAction={
-            <Checkbox
-              onClick={(e) => {
-                !person.favorite
-                  ? dispatch(setFavorite({ ...person }))
-                  : dispatch(removeFavorite({ ...person }));
-              }}
-              icon={!person.favorite ? <FavoriteBorder /> : <Favorite className={styles.checked} />}
-              checkedIcon={<Favorite className={styles.checked} />}
-            />
-          }
-        >
-          <Box pb={1}>
-            <ListItemText
-              primary={
-                <Box color="#fff" fontWeight="600">
-                  {person.name}
-                </Box>
-              }
-            />
-            <Box color="#fff" fontWeight="300" pb={1}>
-              {person.gender + " | " + person.birth_year}
-            </Box>
-            <Chip
-              className={styles.chip}
-              icon={<PlaceOutlinedIcon style={{ color: "#fff", fontSize: "1.3em" }} />}
-              label={person.homeworld}
-            />
+    <ThemeProvider theme={theme}>
+      <ListItem
+        secondaryAction={
+          <Checkbox
+            onClick={(e) => {
+              person.favorite
+                ? dispatch(removeFavorite({ ...person }))
+                : dispatch(setFavorite({ ...person }));
+            }}
+            checked={person.favorite}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite className={styles.checked} />}
+          />
+        }
+      >
+        <Box pb={1}>
+          <ListItemText color="#fff" fontWeight="600" primary={person.name} />
+          <Box color="rgba(255, 255, 255, 0.7)" fontWeight="300" py={1}>
+            {person.gender + " | " + person.birth_year}
           </Box>
-        </ListItem>
-        <Divider />
-      </ThemeProvider>
-    </React.Fragment>
+          <Chip
+            className={styles.chip}
+            icon={<PlaceOutlinedIcon style={{ color: "#fff", fontSize: "1.3em" }} />}
+            label={person.homeworld}
+          />
+        </Box>
+      </ListItem>
+      <Divider />
+    </ThemeProvider>
   );
 }
