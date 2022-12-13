@@ -1,0 +1,14 @@
+body {
+  color: #ffffff;
+  background: #17141f !important;
+  margin: 0;
+  font-family: "Urbanist";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff !important;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
